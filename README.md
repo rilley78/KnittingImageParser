@@ -1,3 +1,7 @@
+# Knitting pattern image parser
+
+## App that making knitting patterns out of image 
+
 To do:
 
 Open window
@@ -6,3 +10,4 @@ Load button
 Parse image in some file
 Image to instructions
 Save instructions
+Instruction player

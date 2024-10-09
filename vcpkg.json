@@ -1,6 +1,12 @@
 {
   "dependencies": [
+    "boost-gil",
     "nativefiledialog-extended",
-    "boost-gil"
+    {
+      "name": "imgui",
+      "features": [
+        "docking-experimental"
+      ]
+    }
   ]
 }
