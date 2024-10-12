@@ -2,10 +2,17 @@
   "version": 2,
   "configurePresets": [
     {
-      "name": "default",
+      "name": "windows",
       "inherits": "vcpkg",
       "environment": {
         "VCPKG_ROOT": "C:/Users/Glebuss/vcpkg"
+      }
+    },
+    {
+      "name": "ubuntu",
+      "inherits": "vcpkg",
+      "environment": {
+        "VCPKG_ROOT": "~/vcpkg"
       }
     }
   ]
