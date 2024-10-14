@@ -3,9 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-std::string OpenImage(void)
+const char* OpenImage(void)
 {
-    std::string out;
+    const char* out = "User pressed cancel";
     NFD_Init();
 
     nfdu8char_t* outPath;
@@ -23,7 +23,7 @@ std::string OpenImage(void)
     }
     else if (result == NFD_CANCEL)
     {
-        puts("User pressed cancel.");
+        //puts("User pressed cancel.");
     }
     else
     {

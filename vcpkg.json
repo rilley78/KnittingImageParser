@@ -1,12 +1,22 @@
 {
   "dependencies": [
     "boost-gil",
-    "nativefiledialog-extended",
+    {
+      "name": "glad",
+      "features": [
+        "gl-api-43"
+      ]
+    },
     {
       "name": "imgui",
       "features": [
-        "docking-experimental"
+        "docking-experimental",
+        "opengl3-binding",
+        "sdl2-binding"
       ]
-    }
+    },
+    "nativefiledialog-extended",
+    "sdl2",
+    "opengl"
   ]
 }

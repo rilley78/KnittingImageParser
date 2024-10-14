@@ -4,7 +4,8 @@
 
 To do:
 
-Open window
+✔?Get link from image
+✔?Open window
 Select resolution
 Load button
 Parse image in some file
