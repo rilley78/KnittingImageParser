@@ -2,6 +2,7 @@
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_opengl3.h"
+#include "imgui_stdlib.h"
 #include <stdio.h>
 #include <SDL.h>
 #if defined(IMGUI_IMPL_OPENGL_ES2)
@@ -15,7 +16,7 @@
 #include "../libs/emscripten/emscripten_mainloop_stub.h"
 #endif
 
-char* OpenImage(void);
+std::string OpenImage(void);
 
 // Main code
 int main(int, char**)
@@ -152,7 +153,7 @@ int main(int, char**)
         // 2. Show a simple window that we create ourselves. We use a Begin/End pair to create a named window.
         {
             static float f = 0.0f;
-            static const char* link = "No image opened";
+            static std::string link = "No image opened";
 
             ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
 
@@ -166,7 +167,7 @@ int main(int, char**)
             if (ImGui::Button("Open image"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
                 link = OpenImage();
             ImGui::SameLine();
-            ImGui::Text("link =%s", link);
+            ImGui::InputText("link", &link);
 
             ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
             ImGui::End();

@@ -3,9 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-const char* OpenImage(void)
+std::string OpenImage(void)
 {
-    const char* out = "User pressed cancel";
+    std::string out = "User pressed cancel";
     NFD_Init();
 
     nfdu8char_t* outPath;
