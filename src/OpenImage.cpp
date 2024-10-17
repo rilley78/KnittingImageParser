@@ -2,12 +2,15 @@
 #include <nfd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
 
-std::string OpenImage(void)
+bool OpenImage(std::string* link)
 {
-    std::string out = "User pressed cancel";
+    
     NFD_Init();
 
+    std::string cancel = "User pressed cancel";
+    bool show_window = false;
     nfdu8char_t* outPath;
     nfdu8filteritem_t filters[1] = { { "Images", "png, jpg" } };
     nfdopendialogu8args_t args = { 0 };
@@ -18,12 +21,15 @@ std::string OpenImage(void)
     {
         //puts("Success!");
         //puts(outPath);
-        out = outPath;
+        *link = outPath;
+        //std::cout << *link << std::endl;
+        show_window = true;
         NFD_FreePathU8(outPath);
     }
     else if (result == NFD_CANCEL)
     {
         //puts("User pressed cancel.");
+        *link = cancel;
     }
     else
     {
@@ -31,5 +37,5 @@ std::string OpenImage(void)
     }
 
     NFD_Quit();
-    return out;
+    return show_window;
 }
