@@ -18,12 +18,13 @@
 #endif
 
 bool OpenImage(std::string* link);
+bool LoadTextureFromFile(const char* file_name, GLuint* out_texture, int* out_width, int* out_height);
 
 // Main code
 int main(int, char**)
 {
     std::string* link = new std::string;
-    *link = "No image opened";
+    *link = "misc/examples/test.png";
     // Setup SDL
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0)
     {
@@ -115,6 +116,12 @@ int main(int, char**)
     bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
+    int my_image_width = 0;
+    int my_image_height = 0;
+    GLuint my_image_texture = 0;
+    bool ret = LoadTextureFromFile("misc/examples/test.png", &my_image_texture, &my_image_width, &my_image_height);
+    IM_ASSERT(ret);
+
     // Main loop
     bool done = false;
 #ifdef __EMSCRIPTEN__
@@ -171,6 +178,11 @@ int main(int, char**)
 
             if (ImGui::Button("Open image"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
                 show_another_window = OpenImage(link);
+                int my_image_width = 0;
+                int my_image_height = 0;
+                GLuint my_image_texture = 0;
+                bool ret = LoadTextureFromFile((*link).c_str(), &my_image_texture, &my_image_width, &my_image_height);
+                IM_ASSERT(ret);
             //ImGui::SameLine();
             
 
@@ -186,6 +198,7 @@ int main(int, char**)
             ImGui::InputText("link", link);
             if (ImGui::Button("Close Me"))
                 show_another_window = false;
+            ImGui::Image((ImTextureID)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
             ImGui::End();
         }
 
