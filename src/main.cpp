@@ -107,6 +107,8 @@ int main(int, char**)
     //io.Fonts->AddFontFromFileTTF("../../misc/fonts/Cousine-Regular.ttf", 15.0f);
     //ImFont* font = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\ArialUni.ttf", 18.0f, nullptr, io.Fonts->GetGlyphRangesJapanese());
     //IM_ASSERT(font != nullptr);
+    ImFont* font = io.Fonts->AddFontFromFileTTF("misc/fonts/Moderustic-Regular.ttf", 18.0f, nullptr, io.Fonts->GetGlyphRangesCyrillic());
+    IM_ASSERT(font != nullptr);
 
     // Our state
     bool show_demo_window = false;
@@ -160,7 +162,7 @@ int main(int, char**)
 
             ImGui::Begin("Knitting Image Parser");                          // Create a window called "Hello, world!" and append into it.
 
-            ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
+            ImGui::Text("Open your image.");               // Display some text (you can use a format strings too)
             ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
             //ImGui::Checkbox("Another Window", &show_another_window);
 
@@ -172,7 +174,7 @@ int main(int, char**)
             //ImGui::SameLine();
             
 
-            ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
+            //ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
             ImGui::End();
         }
 
@@ -180,7 +182,7 @@ int main(int, char**)
         if (show_another_window)
         {
             ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
-            ImGui::Text("Yout image link is: ");
+            ImGui::Text("Yout image link is:");
             ImGui::InputText("link", link);
             if (ImGui::Button("Close Me"))
                 show_another_window = false;
