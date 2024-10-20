@@ -177,12 +177,11 @@ int main(int, char**)
             ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
 
             if (ImGui::Button("Open image"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
+                {
                 show_another_window = OpenImage(link);
-                int my_image_width = 0;
-                int my_image_height = 0;
-                GLuint my_image_texture = 0;
                 bool ret = LoadTextureFromFile((*link).c_str(), &my_image_texture, &my_image_width, &my_image_height);
-                IM_ASSERT(ret);
+                }
+        IM_ASSERT(ret);
             //ImGui::SameLine();
             
 
@@ -193,7 +192,7 @@ int main(int, char**)
         // 3. Show another simple window.
         if (show_another_window)
         {
-            ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+            ImGui::Begin("Your image", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
             ImGui::Text("Yout image link is:");
             ImGui::InputText("link", link);
             if (ImGui::Button("Close Me"))

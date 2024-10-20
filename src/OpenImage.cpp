@@ -62,8 +62,6 @@ bool OpenImage(std::string* link)
 {
     
     NFD_Init();
-
-    std::string cancel = "User pressed cancel";
     bool show_window = false;
     nfdu8char_t* outPath;
     nfdu8filteritem_t filters[1] = { { "Images", "png, jpg" } };
@@ -83,7 +81,6 @@ bool OpenImage(std::string* link)
     else if (result == NFD_CANCEL)
     {
         //puts("User pressed cancel.");
-        *link = cancel;
     }
     else
     {
