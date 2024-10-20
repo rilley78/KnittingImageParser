@@ -6,7 +6,8 @@ To do:
 
 ✔Get link from image
 ✔Open window
-✔?Open image
+✔Open image
+✔Docking + Multiviewport
 Select resolution
 Load button
 Parse image in some file
