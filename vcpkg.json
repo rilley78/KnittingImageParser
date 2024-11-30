@@ -1,6 +1,5 @@
 {
   "dependencies": [
-    "boost-gil",
     {
       "name": "glad",
       "features": [
