@@ -2,7 +2,7 @@
     "version": 2,
     "configurePresets": [
       {
-        "name": "vcpkgWindows",
+        "name": "vcpkg",
         "binaryDir": "${sourceDir}/build",
         "generator": "Ninja",
         "cacheVariables": {

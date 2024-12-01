@@ -3,10 +3,17 @@
     "configurePresets": [
       {
         "name": "win",
-        "inherits": "vcpkgWindows",
+        "inherits": "vcpkg",
         "environment": {
           "VCPKG_ROOT": "C:\\Program Files\\vcpkg"
         }
-       }
+      },
+      {
+        "name": "linux",
+        "inherits": "vcpkg",
+        "environment": {
+          "VCPKG_ROOT": "~/vcpkg"
+        }
+      }
     ]
   }
