@@ -1,5 +1,5 @@
-out/
-build/
-.vs/
-.vscode/
-vcpkg_installed/
+/out/
+/build/
+/.vs/
+/.vscode/
+/vcpkg_installed/
